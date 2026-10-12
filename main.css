@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --ios-bg: #f2f2f7;
+  --ios-card: #ffffff;
+  --ios-blue: #007aff;
+  --ios-pink: #ff2d55;
+  --ios-text: #1c1c1e;
+  --ios-gray: #8e8e93;
+  --ios-separator: #e5e5ea;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ios-bg: #000000;
+    --ios-card: #1c1c1e;
+    --ios-text: #ffffff;
+    --ios-gray: #8e8e93;
+    --ios-separator: #38383a;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  background: var(--ios-bg);
+  color: var(--ios-text);
+  min-height: 100vh;
+  padding: 20px 16px 40px;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Заголовок */
+.header {
+  text-align: center;
+  padding: 30px 0 20px;
+}
+
+.header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #ff2d55, #ff6b9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header p {
+  font-size: 15px;
+  color: var(--ios-gray);
+  font-weight: 500;
+}
+
+/* Карточка */
+.card {
+  background: var(--ios-card);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+
+.card p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ios-gray);
+}
+
+/* Список в стиле iOS */
+.list {
+  background: var(--ios-card);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--ios-separator);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item:active {
+  background: var(--ios-bg);
+}
+
+.list-item .icon {
+  font-size: 22px;
+  margin-right: 14px;
+  width: 28px;
+  text-align: center;
+}
+
+.list-item .arrow {
+  margin-left: auto;
+  color: var(--ios-gray);
+  font-size: 18px;
+  font-weight: 300;
+}
+
+/* Кнопка */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ff2d55, #ff6b9d);
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+  font-family: inherit;
+  margin-top: 8px;
+  box-shadow: 0 4px 16px rgba(255, 45, 85, 0.3);
+}
+
+.btn:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+/* Футер */
+.footer {
+  text-align: center;
+  padding: 30px 0 10px;
+  font-size: 13px;
+  color: var(--ios-gray);
+}
+
+.footer .heart {
+  color: var(--ios-pink);
+  animation: beat 1.4s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+/* Плавное появление */
+.card, .list, .btn {
+  animation: fadeUp 0.5s ease-out both;
+}
+
+.card:nth-child(2) { animation-delay: 0.05s; }
+.card:nth-child(3) { animation-delay: 0.1s; }
+.list { animation-delay: 0.15s; }
+.btn { animation-delay: 0.2s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Сетка для фото */
+.photo-card {
+  padding: 12px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.2s;
+  display: block;
+}
+
+.photo-grid img:active {
+  transform: scale(0.97);
+}
+
+/* Ссылка-пункт списка (чтобы выглядела как остальные) */
+a.list-item {
+  color: var(--ios-text);
+  text-decoration: none;
+}
+
+/* Кнопка «Назад» */
+.back-btn {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin-top: 8px;
+}
+
+/* Страница песен */
+.song-item {
+  cursor: default;
+}
+
+.song-item:active {
+  background: transparent;
+}
+
+.song-question {
+  text-align: center;
+  padding: 22px 20px;
+}
+
+.song-question p {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ios-text);
+  line-height: 1.4;
+}
+
+.song-alt {
+  text-align: center;
+  padding: 18px 20px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.song-alt p {
+  font-size: 15px;
+  color: var(--ios-gray);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Счётчик дней вместе */
+.counter-card {
+  text-align: center;
+  padding: 24px 20px;
+  background: linear-gradient(135deg, #ff2d55, #ff6b9d);
+  color: white;
+  box-shadow: 0 6px 20px rgba(255, 45, 85, 0.3);
+}
+
+.counter-label {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 8px;
+  color: white !important;
+}
+
+.counter-value {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: white !important;
+}
+
+/* Таймлайн */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 16px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--ios-separator);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d55, #ff6b9d);
+  border: 3px solid var(--ios-bg);
+  box-shadow: 0 0 0 1px var(--ios-separator);
+}
+
+.timeline-content {
+  background: var(--ios-card);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ios-pink);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.timeline-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ios-text);
+  margin-bottom: 4px;
+}
+
+.timeline-desc {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--ios-gray);
+}

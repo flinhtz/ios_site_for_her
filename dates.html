@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Важные даты 📅</title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <div class="header">
+    <h1>Важные даты 📅</h1>
+    <p>Дни, которые мы не забудем</p>
+  </div>
+
+  <!-- Счётчик дней вместе -->
+  <div class="card counter-card">
+    <p class="counter-label">Мы вместе уже</p>
+    <p class="counter-value"><span id="days-together">0</span> дней</p>
+  </div>
+
+  <!-- Таймлайн дат -->
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date">9 апреля 2024</p>
+        <p class="timeline-title">Наше знакомство</p>
+        <p class="timeline-desc">"Извини за назойливость"</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date">17 июня 2024</p>
+        <p class="timeline-title">Начали встречаться</p>
+        <p class="timeline-desc">Ты с нетерпением ждала, когда я вживую предложу тебе это</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date">13 июля</p>
+        <p class="timeline-title">Твой день рождения</p>
+        <p class="timeline-desc">Отличный повод порадовать тебя подарочками и вкусностями</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date">5 августа</p>
+        <p class="timeline-title">Мой день рождения</p>
+        <p class="timeline-desc">Всё ещё отличный повод порадовать вкусностями, а меня уже подарочками</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date">31 декабря</p>
+        <p class="timeline-title">Новый год</p>
+        <p class="timeline-desc">Хотелось бы провести этот праздник с тобой. Ну, всему своё время)</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <p class="timeline-date">Дальше...</p>
+        <p class="timeline-title">Наши новые воспоминания</p>
+        <p class="timeline-desc">Здесь появятся новые даты</p>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="btn back-btn">← Назад</a>
+
+  <div class="footer">
+    Сделано с <span class="heart">❤</span> для тебя
+  </div>
+
+  <script>
+    // Счётчик дней вместе
+    // Замени дату на вашу реальную дату начала отношений
+    const startDate = new Date('2024-06-17');
+
+    const now = new Date();
+    const diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+    document.getElementById('days-together').textContent = diff;
+  </script>
+
+</body>
+</html>
